@@ -28,13 +28,19 @@ export default {
             const url = "http://127.0.0.1:8000/api/v1/task/create/";
             let {data} = await Axios.post(url,newPost);
             context.commit('createPost', newPost);
-              
-        },        
+                          
+        },
+        async delUpdatPost(ctx, id) {
+          const url = `http://127.0.0.1:8000/api/v1/task/update/${id}/`;
+          const res = await Axios.get(url);              
+          const post = [res['data']];
+          ctx.commit('updatePosts', post);
+        }       
     },
     getters: {
         allPosts(state) {
           return state.posts;
         },
-        postID: s => id => s.posts.find(t => t.id === id)
+        postID: s => id => s.posts.find(i=> i.id===id)
     }
 }

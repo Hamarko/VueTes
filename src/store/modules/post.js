@@ -35,9 +35,6 @@ export default {
         allPosts(state) {
           return state.posts;
         },
-        postID(state){
-           return id => state.posts.find(t => t.id === id)
-
-        } 
+        postID: s => id => s.posts.find(t => t.id === id)
     }
 }

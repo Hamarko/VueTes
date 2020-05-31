@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import List from '../views/List'
+import Task from '../views/Task'
 
 Vue.use(VueRouter)
 
@@ -13,12 +15,12 @@ Vue.use(VueRouter)
   {
     path: '/list',
     name: 'List',
-    component: () => import('../views/List.vue')
+    component: List
   }, 
   {
-    path: '/task',
-    name: 'Task',
-    component: () => import('../views/Task.vue')
+    path: '/post/:id',
+    name: 'Post',
+    component: Task
   }
 ]
 
